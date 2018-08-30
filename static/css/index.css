@@ -1,0 +1,54 @@
+.index-body {
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.body-introduce {
+    background: #f5f7f9;
+}
+
+@media screen and (max-width: 1024px) {
+    .introduce-box {
+        width: 85% !important;
+    }
+}
+
+.introduce-box {
+    width: 60%;
+    margin: auto;
+    padding: 1rem;
+}
+
+.introduce-title {
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.introduce-content {
+    font-size: 0.5rem;
+    color: #468c9c;
+    margin-top: 0.5rem;
+    text-indent: 1rem;
+}
+
+.body-usage {
+    width: 60%;
+    margin: 1rem auto;
+}
+
+.usage-nav {
+    margin: auto;
+    text-align: center;
+}
+
+.usage-nav a {
+    background: #00AEEF;
+    width: 5rem;
+    height: 1.5rem;
+    border-radius: 0.2rem;
+    text-align: center;
+    line-height: 1.5rem;
+    color: #fff;
+    font-size: 0.5rem;
+    display: inline-block;
+}
