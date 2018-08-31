@@ -1,0 +1,156 @@
+.lab-body {
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.lab-box {
+    background: #F9F9F9;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .lab-box {
+        padding: 0.2rem !important;
+    }
+
+    .box {
+        width: 100% !important;
+    }
+}
+
+.box {
+    width: 80%;
+    height: 6rem;
+    margin: auto;
+}
+
+.box-show {
+    background: #ffffff;
+    width: 50%;
+    height: 100%;
+    float: left;
+    border-radius: 0.2rem;
+    border: 1px solid #d0d5ddd1;
+}
+
+.box-title {
+    height: 1rem;
+    line-height: 1rem;
+    background: rgba(13, 22, 40, 0.82);
+    color: #fff;
+    font-size: 0.35rem;
+    text-indent: 0.25rem;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+}
+
+.box-intro {
+    float: right;
+    width: 45%;
+    height: 100%;
+}
+
+.box-intro p {
+    margin: 0.2rem;
+}
+
+.box-intro input {
+    border: 1px solid #9f9595;
+    border-radius: 0.1rem;
+    height: 0.7rem;
+    width: 80%;
+}
+
+.box-intro textarea {
+    border: 1px solid #9f9595;
+    border-radius: 0.1rem;
+    height: 2.5rem;
+    width: 80%;
+}
+
+.box-intro button {
+    background: #00AEEF;
+    border-radius: 0.1rem;
+    height: 0.7rem;
+    width: 80%;
+    color: #ffffff;
+    font-size: 0.3rem;
+    text-align: center;
+}
+
+button.connected {
+    background: #a0c0cc !important;
+}
+
+.chat-row {
+    padding: 0.2rem;
+    clear: both;
+}
+
+.websocket-chat {
+    height: calc(100% - 1rem);
+    overflow-y: auto;
+    background: rgba(243, 240, 240, 0.9);
+}
+
+.chat-row-left .chat-user {
+    float: left;
+}
+
+.chat-row-left .chat-user:after {
+    content: ':';
+}
+
+.chat-row-left .chat-content {
+    position: relative;
+    background: #ffffff;
+    border-radius: 0.1rem;
+    padding: 0.1rem;
+    min-width: 0.3rem;
+    margin-left: 0.4rem;
+    display: inline-block;
+    float: left;
+}
+
+.chat-row-left .chat-content .arrow {
+    display: inline-block;
+    position: absolute;
+    top: 0.1rem;
+    left: -16px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border: solid 8px;
+    border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 1) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+}
+
+.chat-row-right .chat-user {
+    float: right;
+}
+
+.chat-row-right .chat-user:before {
+    content: ':';
+}
+
+.chat-row-right .chat-content {
+    position: relative;
+    background: rgb(248, 195, 1);
+    border-radius: 0.1rem;
+    padding: 0.1rem;
+    min-width: 0.3rem;
+    margin-right: 0.4rem;
+    display: inline-block;
+    float: right;
+}
+
+.chat-row-right .chat-content .arrow {
+    display: inline-block;
+    position: absolute;
+    top: 0.1rem;
+    right: -16px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border: solid 8px;
+    border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgba(248, 195, 1, 1);
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="baidu-site-verification" content="QIQ6KC1oZ6">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>vSwoole - 微服务器框架</title>
+    <meta name="keywords" content="PHP,Swoole,vSwoole,异步,WebSocket服务器,Udp服务器,Http服务器,Crontab定时服务器">
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="static/css/vSwoole-base.css">
+    <link rel="stylesheet" type="text/css" href="static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="static/css/lab.css">
+    <script src="static/js/lib/flexible.js"></script>
+    <script src="static/js/lib/jquery.1.10.1.min.js"></script>
+    <script src="static/js/lib/jquery.cookie.min.js"></script>
+    <script src="static/js/lib/interact.ws.js"></script>
+    <script src="static/js/lib/vue.js"></script>
+</head>
+<body>
+<div id="vSwoole-lab-root" class="vSwoole-root">
+    <div class="vSwoole-header">
+        <div class="header-logo">
+            <a href="https://vswoole.com"><img src="static/img/vSwoole-logo.png"></a>
+        </div>
+        <div class="header-menu">
+            <ul>
+                <li><a href="https://vswoole.com">首页</a></li>
+                <li><a target="_blank" href="https://www.kancloud.cn/zengzhifei/vswoole/content">文档</a></li>
+                <li><a href="https://vswoole.com/download.html">下载</a></li>
+                <li class="active"><a target="_blank" href="https://vswoole.com/lab.html">实验室</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="lab-body">
+        <div class="lab-box">
+            <div class="box lab-websocket">
+                <div class="box-show">
+                    <div class="box-title">WebSocket</div>
+                    <div class="websocket-chat" ref="WebSocket-chat-box">
+                        <div class="chat-row" v-for="(item,index) in WebSocketChatList"
+                             :class="{'chat-row-left':WebSocket.user_id != item.user_id,'chat-row-right':WebSocket.user_id == item.user_id}">
+                            <span class="chat-user">{{item.chat_user}}</span>
+                            <span class="chat-content">
+                                <span>{{item.chat_content}}</span>
+                                <span class="arrow"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-intro">
+                    <p>
+                        <button type="button" :class="{connected:WebSocketConnectStatus}" @click="operateWebSocket">
+                            {{WebSocketConnectStatus ? '断开连接' : '建立连接'}}
+                        </button>
+                    </p>
+                    <p><input type="text" v-model="WebSocket.user_name" maxlength="8" placeholder="昵称"></p>
+                    <p><textarea v-model="WebSocket.user_chat" maxlength="30" placeholder="内容"></textarea></p>
+                    <p>
+                        <button type="button" :class="{connected:!WebSocketConnectStatus}"
+                                :disabled="!WebSocketConnectStatus" @click="sendWebSocketChat">发送
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vSwoole-footer">
+        <div class="footer-copy">&copy;2018 - vswoole.com</div>
+        <div class="footer-author">zengzhifei@outlook.com</div>
+    </div>
+</div>
+<script src="static/js/lab.js"></script>
+</body>
+</html>
