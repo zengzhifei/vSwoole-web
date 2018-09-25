@@ -5,23 +5,24 @@
 
 .lab-box {
     background: #F9F9F9;
-    padding: 1rem;
+    margin: 1rem auto 2rem;
 }
 
 @media screen and (max-width: 1024px) {
     .lab-box {
-        padding: 0.2rem !important;
+        width: 95% !important;
     }
 
     .box {
         width: 100% !important;
+        height: 6rem !important;
     }
 }
 
 .box {
     width: 80%;
-    height: 6rem;
     margin: auto;
+    height: 10rem;
 }
 
 .box-show {
@@ -42,6 +43,10 @@
     text-indent: 0.25rem;
     border-top-left-radius: 0.2rem;
     border-top-right-radius: 0.2rem;
+}
+
+.box-demo {
+    height: calc(100% - 1rem);
 }
 
 .box-intro {
@@ -88,7 +93,6 @@ button.connected {
 }
 
 .websocket-chat {
-    height: calc(100% - 1rem);
     overflow-y: auto;
     background: rgba(243, 240, 240, 0.9);
 }

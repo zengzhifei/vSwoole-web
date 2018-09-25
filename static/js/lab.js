@@ -14,8 +14,17 @@ new Vue({
             WebSocket: {
                 url: 'wss://server.vswoole.com/ws',
                 range_id: 'vswoole-web-lab-test',
+            },
+            MPlayer: {
+                //url: 'http://223.110.245.147/ott.js.chinamobile.com/PLTV/3/224/3221226799/index.m3u8'
+                url: './static/mp4/1.mp4',
             }
         };
+    },
+    mounted: function () {
+        this.$nextTick(function () {
+            this.initMPlayer();
+        });
     },
     computed: {},
     methods: {
@@ -79,6 +88,41 @@ new Vue({
                 this.WebSocket.user_chat = '';
             }
         },
+        initMPlayer: function () {
+            this.$options.mPlayer = new MPlayer({
+                el: '.mPlayer-box',
+                video: {
+                    src: this.$options.configs.MPlayer.url,
+                    poster: './static/img/1.jpg',
+                    preload: true,
+                    loop: true
+                },
+            });
+            setInterval(() => {
+                this.$options.mPlayer.getDanmakuStatus() && this.$options.mPlayer.addDanmaku(this.getDanmakuList());
+            }, 1000);
+        },
+        getDanmakuList: function () {
+            let danmakuText = [
+                    '你好,陌生人',
+                    '你喜欢周杰伦吗',
+                    '想听一首周杰伦的歌吗',
+                    '这里为你准备了一首周杰伦的MV，点击播放就可以观看了',
+                    '怎么样，喜欢吗',
+                    '再见，陌生人'
+                ],
+                danmakuName = ['青花瓷', '半岛铁盒', '夜曲', '印第安老斑鸠', '一点点', '下沙'],
+                danmakuList = [];
 
+            for (let i = 0, max = Math.floor(Math.random() * 10); i <= max; i++) {
+                let j = Math.floor(Math.random() * danmakuText.length);
+                danmakuList.push({
+                    img: './static/img/1.jpg',
+                    name: danmakuName[j],
+                    text: danmakuText[j]
+                });
+            }
+            return danmakuList;
+        }
     }
 });
