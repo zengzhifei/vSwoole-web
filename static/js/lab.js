@@ -18,7 +18,7 @@ new Vue({
             },
             MPlayer: {
                 //url: 'http://223.110.245.147/ott.js.chinamobile.com/PLTV/3/224/3221226799/index.m3u8'
-                url: './static/mp4/1.mp4',
+                url: './static/video/C2E2014CC61F934A96BDB0B0145C974C.flv',
             }
         };
     },
@@ -110,7 +110,7 @@ new Vue({
                 el: '.mPlayer-box',
                 video: {
                     src: this.$options.configs.MPlayer.url,
-                    poster: './static/img/1.jpg',
+                    //poster: './static/img/1.jpg',
                     preload: true,
                     loop: true
                 },
