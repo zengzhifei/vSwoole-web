@@ -114,6 +114,9 @@ new Vue({
                     preload: true,
                     loop: true
                 },
+                controls: {
+                    defaultDanmakuSwitch: false
+                } 
             });
             setInterval(() => {
                 this.$options.mPlayer.getDanmakuStatus() && this.$options.mPlayer.addDanmaku(this.getDanmakuList());
