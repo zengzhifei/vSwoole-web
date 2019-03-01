@@ -26,7 +26,7 @@ new Vue({
     mounted: function () {
         this.$nextTick(function () {
             this.initMPlayer();
-	    this.operateWebSocket();
+            this.operateWebSocket();
         });
     },
     computed: {},
@@ -49,13 +49,13 @@ new Vue({
                         };
                         ws.send(JSON.stringify(range_data));
 
-			let get_online_data = {
-			    'cmd': 'online',
-			};
-			ws.send(JSON.stringify(get_online_data));
-			setInterval(()=>{
-			    ws.send(JSON.stringify(get_online_data));
-			},60000);
+                        let get_online_data = {
+                            'cmd': 'online',
+                        };
+                        ws.send(JSON.stringify(get_online_data));
+                        setInterval(() => {
+                            ws.send(JSON.stringify(get_online_data));
+                        }, 60000);
                     },
                     onMessage: (ws, res) => {
                         res = JSON.parse(res);
@@ -67,13 +67,13 @@ new Vue({
                                 this.$refs['WebSocket-chat-box'].scrollTop = this.$refs['WebSocket-chat-box'].scrollHeight;
                             });
                         } else if (res.type === 'online') {
-			    let data = res.data;
-		            let online_data = {chat_user: '在线小助手', chat_content: '当前有'+data+'人和你同时在线哦，快和他们聊聊吧～'};
-			    this.WebSocketChatList.push(online_data);
+                            let data = res.data;
+                            let online_data = {chat_user: '在线小助手', chat_content: '当前有' + data + '人和你同时在线哦，快和他们聊聊吧～'};
+                            this.WebSocketChatList.push(online_data);
                             this.$nextTick(function () {
                                 this.$refs['WebSocket-chat-box'].scrollTop = this.$refs['WebSocket-chat-box'].scrollHeight;
-                            });    
-			}
+                            });
+                        }
                     },
                     onClose: (ws) => {
                         this.WebSocketConnectStatus = 0;
@@ -117,14 +117,14 @@ new Vue({
                 },
                 controls: {
                     defaultDanmakuSwitch: false
-                } 
+                }
             });
             setInterval(() => {
                 this.$options.mPlayer.getDanmakuStatus() && this.$options.mPlayer.addDanmaku(this.getDanmakuList());
             }, 1000);
         },
         getDanmakuList: function () {
-	    let danmakuText = [
+            let danmakuText = [
                     '闻说双溪春尚好，也拟泛轻舟。只恐双溪舴艋舟，载不动许多愁。',
                     '梧桐更兼细雨，到黄昏、点点滴滴。这次第，怎一个愁字了得！',
                     '花自飘零水自流。一种相思，两处闲愁。此情无计可消除，才下眉头，却上心头。',
@@ -134,11 +134,11 @@ new Vue({
                     '更好明光宫殿，几枝先近日边匀。金尊倒，拚了尽烛，不管黄昏。',
                     '记取楼前绿水，应念我、终日凝眸。凝眸处，从今更数，几段新愁。',
                     '草际鸣蛩。惊落梧桐。正人间、天上愁浓。云阶月地，关锁千重。纵浮槎来，浮槎去，不相逢。',
-            ],
-            danmakuName = ['李清照'],
-            danmakuList = [];
-            
-	    for (let i = 0, max = Math.floor(Math.random() * 10); i <= max; i++) {
+                ],
+                danmakuName = ['李清照'],
+                danmakuList = [];
+
+            for (let i = 0, max = Math.floor(Math.random() * 10); i <= max; i++) {
                 let j = Math.floor(Math.random() * danmakuText.length);
                 danmakuList.push({
                     img: './static/img/1.jpg',

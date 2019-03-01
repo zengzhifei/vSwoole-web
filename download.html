@@ -14,11 +14,6 @@
     <link rel="stylesheet" type="text/css" href="static/css/vSwoole-base.css">
     <link rel="stylesheet" type="text/css" href="static/css/common.css">
     <link rel="stylesheet" type="text/css" href="static/css/download.css">
-    <script src="static/js/lib/tongji.js"></script>
-    <script src="static/js/lib/flexible.js"></script>
-    <script src="static/js/lib/jquery.1.10.1.min.js"></script>
-    <script src="static/js/lib/jquery.cookie.min.js"></script>
-    <script src="static/js/lib/vue.min.js"></script>
 </head>
 <body>
 <div id="vSwoole-download-root" class="vSwoole-root">
@@ -41,16 +36,23 @@
                 <li v-for="(item,index) in DownloadList">
                     <span>{{item.vswoole_version}}</span>
                     <span>{{item.vswoole_date}}</span>
-                    <span><a :href="item.vswoole_url">下载</a></span>
+                    <span>{{item.download_count || 0}}次</span>
+                    <span class="download-btn"><a :href="item.vswoole_url" @click="downloadRecord(index,item.vswoole_version)">下载</a></span>
                 </li>
             </ul>
         </div>
     </div>
     <div class="vSwoole-footer">
-        <div class="footer-copy">&copy;2018 - vswoole.com</div>
+        <div class="footer-copy">&copy;2019 - vswoole.com</div>
         <div class="footer-author">zengzhifei@outlook.com</div>
     </div>
 </div>
+<script src="static/js/lib/tongji.js"></script>
+<script src="static/js/lib/flexible.js"></script>
+<script src="static/js/lib/jquery.1.10.1.min.js"></script>
+<script src="static/js/lib/jquery.cookie.min.js"></script>
+<script src="static/js/lib/vue.min.js"></script>
 <script src="static/js/download.js"></script>
+<script src="static/js/common.js"></script>
 </body>
 </html>
