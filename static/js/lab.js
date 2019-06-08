@@ -62,6 +62,9 @@ new Vue({
                         console.log(res);
                         if (res.type === 'message') {
                             let data = res.data;
+			    if (typeof data !== 'object') {
+			   	data = {chat_user: '系统消息', chat_content: data};
+			    }
                             this.WebSocketChatList.push(data);
                             this.$nextTick(function () {
                                 this.$refs['WebSocket-chat-box'].scrollTop = this.$refs['WebSocket-chat-box'].scrollHeight;
