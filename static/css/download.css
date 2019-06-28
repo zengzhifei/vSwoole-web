@@ -36,11 +36,12 @@
 
 .download-body li span {
     display: inline-block;
-    width: 24%;
+    width: 19%;
     color: rgba(22, 25, 20, 0.73);
     font-size: 0.3rem;
     text-align: center;
     vertical-align: middle;
+    word-break: break-all;
 }
 
 .download-body li .download-btn a {

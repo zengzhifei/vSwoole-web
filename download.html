@@ -33,10 +33,18 @@
     <div class="download-body">
         <div class="body-download">
             <ul class="download-box">
+		<li>
+		    <span>版本</span>
+		    <span>日期</span>
+		    <span>下载</span>
+		    <span>MD5</span>
+		    <span>操作</span>
+		</li>
                 <li v-for="(item,index) in DownloadList">
                     <span>{{item.vswoole_version}}</span>
                     <span>{{item.vswoole_date}}</span>
                     <span>{{item.download_count || 0}}次</span>
+                    <span>{{item.md5}}</span>
                     <span class="download-btn"><a :href="item.vswoole_url" @click="downloadRecord(index,item.vswoole_version)">下载</a></span>
                 </li>
             </ul>
