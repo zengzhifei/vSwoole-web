@@ -10,14 +10,13 @@
           content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <title>vSwoole - 微服务器框架</title>
     <meta name="keywords" content="PHP,Swoole,vSwoole,异步,WebSocket服务器,Udp服务器,Http服务器,Crontab定时服务器">
-    <meta name="description" content="vSwoole,与热爱技术的你分享简单的微服务框架">
     <link rel="shortcut icon" href="static/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="static/css/vSwoole-base.css">
     <link rel="stylesheet" type="text/css" href="static/css/common.css">
-    <link rel="stylesheet" type="text/css" href="static/css/download.css">
+    <link rel="stylesheet" type="text/css" href="static/css/reg.css">
 </head>
 <body>
-<div id="vSwoole-download-root" class="vSwoole-root">
+<div id="vSwoole-reg-root" class="vSwoole-root">
     <div class="vSwoole-header">
         <div class="header-logo">
             <a href="https://www.vswoole.com"><img src="static/img/vSwoole-logo.png"></a>
@@ -26,30 +25,37 @@
             <ul>
                 <li><a href="https://www.vswoole.com">首页</a></li>
                 <li><a target="_blank" href="https://www.kancloud.cn/zengzhifei/vswoole/content">文档</a></li>
-                <li class="active"><a href="download.html">下载</a></li>
+                <li><a href="download.html">下载</a></li>
                 <li><a href="lab.html">实验室</a></li>
+                <li class="active"><a href="login.html">登录</a></li>
             </ul>
         </div>
     </div>
-    <div class="download-body">
-        <div class="body-download">
-            <ul class="download-box">
-		<li>
-		    <span>版本</span>
-		    <span>日期</span>
-		    <span>下载</span>
-		    <span>MD5</span>
-		    <span>操作</span>
-		</li>
-                <li v-for="(item,index) in DownloadList">
-                    <span>{{item.vswoole_version}}</span>
-                    <span>{{item.vswoole_date}}</span>
-                    <span>{{item.download_count || 0}}次</span>
-                    <span>{{item.md5}}</span>
-                    <span class="download-btn"><a :href="item.vswoole_url" @click="downloadRecord(index,item.vswoole_version)">下载</a></span>
-                </li>
-            </ul>
-        </div>
+    <div class="reg-body">
+        <ul class="reg-box">
+            <li>
+                <input type="email" v-model="User.user_email" v-on:input="checkReg" placeholder="请输入你的电子邮箱作为账户名">
+            </li>
+            <li>
+                <input type="text" v-model="User.user_code" v-on:input="checkReg" placeholder="请输入验证码" class="reg-code">
+                <button class="reg-text" @click="getEmailCode">{{reg_code_text}}</button>
+            </li>
+            <li>
+                <input type="password" v-model="User.user_password" v-on:input="checkReg" minlength="8"
+                       placeholder="请输入8位以上的密码">
+            </li>
+            <li>
+                <input type="password" v-model="User.user_repassword" v-on:input="checkReg" minlength="8"
+                       placeholder="请确认输入你的密码">
+            </li>
+            <li>
+                <button class="reg-submit" :class="{disabled:!reg_enabled}" :disabled="!reg_enabled" @click="submitReg">注册
+                </button>
+            </li>
+            <li>
+                已有账户，<a href="login.html">去登录</a>
+            </li>
+        </ul>
     </div>
     <div class="vSwoole-footer">
         <div class="footer-copy">&copy;2019 - vswoole.com</div>
@@ -61,7 +67,7 @@
 <script src="static/js/lib/jquery.1.10.1.min.js"></script>
 <script src="static/js/lib/jquery.cookie.min.js"></script>
 <script src="static/js/lib/vue.min.js"></script>
-<script src="static/js/download.js"></script>
 <script src="static/js/common.js"></script>
+<script src="static/js/reg.js"></script>
 </body>
 </html>
